@@ -1,0 +1,18 @@
+.__submit-success{
+	color:green;
+	border-radius:10px;
+	text-align:center;
+	padding:15px;
+	border:1px solid green;
+}
+.__submit-error-title{
+	color:red;
+	font-style:bold;
+}
+.__submit-error{
+	color:red;
+	border-radius:10px;
+	text-align:center;
+	padding:15px;
+	border:1px solid red;
+}
