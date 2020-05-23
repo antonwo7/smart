@@ -18,15 +18,22 @@ class HSForm{
 	}
 	
 	public function send_mail(){
-		//$to = $this->data['hsf_firstname'] . ' <' . $this->data['hsf_email'] . '>';
 		$to = $this->data['hsf_email_admin'];
 		$subject = $this->data['hsf_subject'];
 		
-		$message = 'Subject: ' . $this->data['hsf_subject'] . '\r\nMessage: ' . $this->data['hsf_message'];
+		$message = '
+			<html>
+			<head>
+				<title>' . $this->data['hsf_subject'] . '</title>
+			</head>
+			<body>
+				<p>' . $this->data['hsf_message'] . '</p>
+			</body>
+			</html>
+		';
 		
-		$headers = 'MIME-Version: 1.0\r\n';
-		$headers .= 'Content-type: text/html; charset=iso-8859-1\r\n';
-		$headers .= 'From: Good site <goodsite@gmail.com>\r\n';
+		$headers  = "Content-type: text/html; \r\n"; 
+		$headers .= "From: info@lynart.com <info@lynart.com>\r\n"; 
 		
 		if(!mail($to, $subject, $message, $headers))
 			$this->messages['errors'][] = __('Error occurred while sending email');
